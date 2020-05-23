@@ -133,7 +133,6 @@ Class | Method | HTTP request | Description
  - [UpliftSearchClientJavascript.FacetResponseValues](docs/FacetResponseValues.md)
  - [UpliftSearchClientJavascript.FilterParams](docs/FilterParams.md)
  - [UpliftSearchClientJavascript.HighlightResponse](docs/HighlightResponse.md)
- - [UpliftSearchClientJavascript.Language](docs/Language.md)
  - [UpliftSearchClientJavascript.PaginationParams](docs/PaginationParams.md)
  - [UpliftSearchClientJavascript.PersonalizationParams](docs/PersonalizationParams.md)
  - [UpliftSearchClientJavascript.QueryPerformance](docs/QueryPerformance.md)

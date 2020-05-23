@@ -17,12 +17,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Document', 'model/FacetParams', 'model/FacetResponse', 'model/FacetResponseValues', 'model/FilterParams', 'model/HighlightResponse', 'model/Language', 'model/PaginationParams', 'model/PersonalizationParams', 'model/QueryPerformance', 'model/RankingParams', 'model/RequestParams', 'model/SearchHighlightParams', 'model/SearchParams', 'model/SearchRequest', 'model/SearchResponse', 'model/SuggestHighlightParams', 'model/SuggestParams', 'model/SuggestParamsSuggestionSource', 'model/SuggestRequest', 'model/SuggestResponse', 'api/SearchApi', 'api/SuggestApi'], factory);
+    define(['ApiClient', 'model/Document', 'model/FacetParams', 'model/FacetResponse', 'model/FacetResponseValues', 'model/FilterParams', 'model/HighlightResponse', 'model/PaginationParams', 'model/PersonalizationParams', 'model/QueryPerformance', 'model/RankingParams', 'model/RequestParams', 'model/SearchHighlightParams', 'model/SearchParams', 'model/SearchRequest', 'model/SearchResponse', 'model/SuggestHighlightParams', 'model/SuggestParams', 'model/SuggestParamsSuggestionSource', 'model/SuggestRequest', 'model/SuggestResponse', 'api/SearchApi', 'api/SuggestApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/Document'), require('./model/FacetParams'), require('./model/FacetResponse'), require('./model/FacetResponseValues'), require('./model/FilterParams'), require('./model/HighlightResponse'), require('./model/Language'), require('./model/PaginationParams'), require('./model/PersonalizationParams'), require('./model/QueryPerformance'), require('./model/RankingParams'), require('./model/RequestParams'), require('./model/SearchHighlightParams'), require('./model/SearchParams'), require('./model/SearchRequest'), require('./model/SearchResponse'), require('./model/SuggestHighlightParams'), require('./model/SuggestParams'), require('./model/SuggestParamsSuggestionSource'), require('./model/SuggestRequest'), require('./model/SuggestResponse'), require('./api/SearchApi'), require('./api/SuggestApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/Document'), require('./model/FacetParams'), require('./model/FacetResponse'), require('./model/FacetResponseValues'), require('./model/FilterParams'), require('./model/HighlightResponse'), require('./model/PaginationParams'), require('./model/PersonalizationParams'), require('./model/QueryPerformance'), require('./model/RankingParams'), require('./model/RequestParams'), require('./model/SearchHighlightParams'), require('./model/SearchParams'), require('./model/SearchRequest'), require('./model/SearchResponse'), require('./model/SuggestHighlightParams'), require('./model/SuggestParams'), require('./model/SuggestParamsSuggestionSource'), require('./model/SuggestRequest'), require('./model/SuggestResponse'), require('./api/SearchApi'), require('./api/SuggestApi'));
   }
-}(function(ApiClient, Document, FacetParams, FacetResponse, FacetResponseValues, FilterParams, HighlightResponse, Language, PaginationParams, PersonalizationParams, QueryPerformance, RankingParams, RequestParams, SearchHighlightParams, SearchParams, SearchRequest, SearchResponse, SuggestHighlightParams, SuggestParams, SuggestParamsSuggestionSource, SuggestRequest, SuggestResponse, SearchApi, SuggestApi) {
+}(function(ApiClient, Document, FacetParams, FacetResponse, FacetResponseValues, FilterParams, HighlightResponse, PaginationParams, PersonalizationParams, QueryPerformance, RankingParams, RequestParams, SearchHighlightParams, SearchParams, SearchRequest, SearchResponse, SuggestHighlightParams, SuggestParams, SuggestParamsSuggestionSource, SuggestRequest, SuggestResponse, SearchApi, SuggestApi) {
   'use strict';
 
   /**
@@ -92,11 +92,6 @@
      * @property {module:model/HighlightResponse}
      */
     HighlightResponse: HighlightResponse,
-    /**
-     * The Language model constructor.
-     * @property {module:model/Language}
-     */
-    Language: Language,
     /**
      * The PaginationParams model constructor.
      * @property {module:model/PaginationParams}

@@ -17,18 +17,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/FacetParams', 'model/FilterParams', 'model/Language', 'model/PaginationParams', 'model/PersonalizationParams', 'model/RankingParams', 'model/SearchHighlightParams'], factory);
+    define(['ApiClient', 'model/FacetParams', 'model/FilterParams', 'model/PaginationParams', 'model/PersonalizationParams', 'model/RankingParams', 'model/SearchHighlightParams'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./FacetParams'), require('./FilterParams'), require('./Language'), require('./PaginationParams'), require('./PersonalizationParams'), require('./RankingParams'), require('./SearchHighlightParams'));
+    module.exports = factory(require('../ApiClient'), require('./FacetParams'), require('./FilterParams'), require('./PaginationParams'), require('./PersonalizationParams'), require('./RankingParams'), require('./SearchHighlightParams'));
   } else {
     // Browser globals (root is window)
     if (!root.UpliftSearchClientJavascript) {
       root.UpliftSearchClientJavascript = {};
     }
-    root.UpliftSearchClientJavascript.SearchParams = factory(root.UpliftSearchClientJavascript.ApiClient, root.UpliftSearchClientJavascript.FacetParams, root.UpliftSearchClientJavascript.FilterParams, root.UpliftSearchClientJavascript.Language, root.UpliftSearchClientJavascript.PaginationParams, root.UpliftSearchClientJavascript.PersonalizationParams, root.UpliftSearchClientJavascript.RankingParams, root.UpliftSearchClientJavascript.SearchHighlightParams);
+    root.UpliftSearchClientJavascript.SearchParams = factory(root.UpliftSearchClientJavascript.ApiClient, root.UpliftSearchClientJavascript.FacetParams, root.UpliftSearchClientJavascript.FilterParams, root.UpliftSearchClientJavascript.PaginationParams, root.UpliftSearchClientJavascript.PersonalizationParams, root.UpliftSearchClientJavascript.RankingParams, root.UpliftSearchClientJavascript.SearchHighlightParams);
   }
-}(this, function(ApiClient, FacetParams, FilterParams, Language, PaginationParams, PersonalizationParams, RankingParams, SearchHighlightParams) {
+}(this, function(ApiClient, FacetParams, FilterParams, PaginationParams, PersonalizationParams, RankingParams, SearchHighlightParams) {
   'use strict';
 
   /**
@@ -42,7 +42,7 @@
    * @alias module:model/SearchParams
    * @class
    * @param attributesToRetrieve {Array.<String>} List of attributes to return for each document. By default, returns all attributes. Returning all attributes can increase response size and latency.
-   * @param language {module:model/Language} 
+   * @param language {String} Language iso code
    * @param paginationParams {module:model/PaginationParams} 
    * @param rankingParams {module:model/RankingParams} 
    * @param personalizationParams {module:model/PersonalizationParams} 
@@ -70,7 +70,7 @@
       if (data.hasOwnProperty('attributesToRetrieve'))
         obj.attributesToRetrieve = ApiClient.convertToType(data['attributesToRetrieve'], ['String']);
       if (data.hasOwnProperty('language'))
-        obj.language = Language.constructFromObject(data['language']);
+        obj.language = ApiClient.convertToType(data['language'], 'String');
       if (data.hasOwnProperty('facets'))
         obj.facets = FacetParams.constructFromObject(data['facets']);
       if (data.hasOwnProperty('filters'))
@@ -100,7 +100,8 @@
   exports.prototype.attributesToRetrieve = undefined;
 
   /**
-   * @member {module:model/Language} language
+   * Language iso code
+   * @member {String} language
    */
   exports.prototype.language = undefined;
 

@@ -46,7 +46,7 @@
           searchRequest.searchParams = new UpliftSearchClientJavascript.SearchParams();
           searchRequest.searchParams.keyphrase = "";
           searchRequest.searchParams.attributesToRetrieve = [""];
-          searchRequest.searchParams.language = new UpliftSearchClientJavascript.Language();
+          searchRequest.searchParams.language = "";
           searchRequest.searchParams.facets = new UpliftSearchClientJavascript.FacetParams();
           searchRequest.searchParams.facets.maxFacets = ;
           searchRequest.searchParams.facets.maxValuePerFacet = ;
@@ -159,8 +159,9 @@
                   expect(data).to.be("");
                 }
               }
-              expect(data.searchParams.language).to.be.a(UpliftSearchClientJavascript.Language);
-                  expect(data.searchParams.facets).to.be.a(UpliftSearchClientJavascript.FacetParams);
+              expect(data.searchParams.language).to.be.a('string');
+              expect(data.searchParams.language).to.be("");
+              expect(data.searchParams.facets).to.be.a(UpliftSearchClientJavascript.FacetParams);
                     expect(data.searchParams.facets.maxFacets).to.be.a('number');
                 expect(data.searchParams.facets.maxFacets).to.be();
                 expect(data.searchParams.facets.maxValuePerFacet).to.be.a('number');

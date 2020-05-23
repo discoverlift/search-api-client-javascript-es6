@@ -49,7 +49,7 @@
           suggestRequest.suggestParams.suggestionSource = new UpliftSearchClientJavascript.SuggestParamsSuggestionSource();
           suggestRequest.suggestParams.suggestionSource.sourceName = "recentSearchesByUser";
           suggestRequest.suggestParams.suggestionSource.attributeName = "";
-          suggestRequest.suggestParams.language = new UpliftSearchClientJavascript.Language();
+          suggestRequest.suggestParams.language = "";
           suggestRequest.suggestParams.highlightParams = new UpliftSearchClientJavascript.SuggestHighlightParams();
           suggestRequest.suggestParams.highlightParams.preTag = "";
           suggestRequest.suggestParams.highlightParams.postTag = "";
@@ -126,8 +126,9 @@
                 expect(data.suggestParams.suggestionSource.sourceName).to.be("recentSearchesByUser");
                 expect(data.suggestParams.suggestionSource.attributeName).to.be.a('string');
                 expect(data.suggestParams.suggestionSource.attributeName).to.be("");
-              expect(data.suggestParams.language).to.be.a(UpliftSearchClientJavascript.Language);
-                  expect(data.suggestParams.highlightParams).to.be.a(UpliftSearchClientJavascript.SuggestHighlightParams);
+              expect(data.suggestParams.language).to.be.a('string');
+              expect(data.suggestParams.language).to.be("");
+              expect(data.suggestParams.highlightParams).to.be.a(UpliftSearchClientJavascript.SuggestHighlightParams);
                     expect(data.suggestParams.highlightParams.preTag).to.be.a('string');
                 expect(data.suggestParams.highlightParams.preTag).to.be("");
                 expect(data.suggestParams.highlightParams.postTag).to.be.a('string');

@@ -17,18 +17,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Language', 'model/PaginationParams', 'model/SuggestHighlightParams', 'model/SuggestParamsSuggestionSource'], factory);
+    define(['ApiClient', 'model/PaginationParams', 'model/SuggestHighlightParams', 'model/SuggestParamsSuggestionSource'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Language'), require('./PaginationParams'), require('./SuggestHighlightParams'), require('./SuggestParamsSuggestionSource'));
+    module.exports = factory(require('../ApiClient'), require('./PaginationParams'), require('./SuggestHighlightParams'), require('./SuggestParamsSuggestionSource'));
   } else {
     // Browser globals (root is window)
     if (!root.UpliftSearchClientJavascript) {
       root.UpliftSearchClientJavascript = {};
     }
-    root.UpliftSearchClientJavascript.SuggestParams = factory(root.UpliftSearchClientJavascript.ApiClient, root.UpliftSearchClientJavascript.Language, root.UpliftSearchClientJavascript.PaginationParams, root.UpliftSearchClientJavascript.SuggestHighlightParams, root.UpliftSearchClientJavascript.SuggestParamsSuggestionSource);
+    root.UpliftSearchClientJavascript.SuggestParams = factory(root.UpliftSearchClientJavascript.ApiClient, root.UpliftSearchClientJavascript.PaginationParams, root.UpliftSearchClientJavascript.SuggestHighlightParams, root.UpliftSearchClientJavascript.SuggestParamsSuggestionSource);
   }
-}(this, function(ApiClient, Language, PaginationParams, SuggestHighlightParams, SuggestParamsSuggestionSource) {
+}(this, function(ApiClient, PaginationParams, SuggestHighlightParams, SuggestParamsSuggestionSource) {
   'use strict';
 
   /**
@@ -44,7 +44,7 @@
    * @param keyphrase {String} Query keyphrase. Empty keyphrase returns no result.
    * @param suggestionType {module:model/SuggestParams.SuggestionTypeEnum} Type of suggestion to be returned
    * @param suggestionSource {module:model/SuggestParamsSuggestionSource} 
-   * @param language {module:model/Language} 
+   * @param language {String} Language iso code
    */
   var exports = function(keyphrase, suggestionType, suggestionSource, language) {
     this.keyphrase = keyphrase;
@@ -70,7 +70,7 @@
       if (data.hasOwnProperty('suggestionSource'))
         obj.suggestionSource = SuggestParamsSuggestionSource.constructFromObject(data['suggestionSource']);
       if (data.hasOwnProperty('language'))
-        obj.language = Language.constructFromObject(data['language']);
+        obj.language = ApiClient.convertToType(data['language'], 'String');
       if (data.hasOwnProperty('highlightParams'))
         obj.highlightParams = SuggestHighlightParams.constructFromObject(data['highlightParams']);
       if (data.hasOwnProperty('paginationParams'))
@@ -97,7 +97,8 @@
   exports.prototype.suggestionSource = undefined;
 
   /**
-   * @member {module:model/Language} language
+   * Language iso code
+   * @member {String} language
    */
   exports.prototype.language = undefined;
 
