@@ -103,15 +103,12 @@ var domainId = "domainId_example"; // {String}
 
 var searchRequest = new UpliftSearchClientJavascript.SearchRequest(); // {SearchRequest} 
 
+api.searchCatalog(catalogId, domainIdsearchRequest).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
 
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-api.searchCatalog(catalogId, domainId, searchRequest, callback);
 
 ```
 
@@ -122,7 +119,9 @@ All URIs are relative to *https://api.prod.discoverlift.com/search-api*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *UpliftSearchClientJavascript.SearchApi* | [**searchCatalog**](docs/SearchApi.md#searchCatalog) | **POST** /v1/domain/{domainId}/catalog/{catalogId}/search | 
+*UpliftSearchClientJavascript.SearchApi* | [**v1DomainDomainIdCatalogCatalogIdSearchOptions**](docs/SearchApi.md#v1DomainDomainIdCatalogCatalogIdSearchOptions) | **OPTIONS** /v1/domain/{domainId}/catalog/{catalogId}/search | Options Call
 *UpliftSearchClientJavascript.SuggestApi* | [**suggest**](docs/SuggestApi.md#suggest) | **POST** /v1/domain/{domainId}/catalog/{catalogId}/suggest | 
+*UpliftSearchClientJavascript.SuggestApi* | [**v1DomainDomainIdCatalogCatalogIdSuggestOptions**](docs/SuggestApi.md#v1DomainDomainIdCatalogCatalogIdSuggestOptions) | **OPTIONS** /v1/domain/{domainId}/catalog/{catalogId}/suggest | Options Call
 
 
 ## Documentation for Models

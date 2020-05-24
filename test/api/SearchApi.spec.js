@@ -71,11 +71,7 @@
           searchRequest.requestParams.returnParams = false;
           searchRequest.requestParams.returnRankingExplanation = false;
 
-          instance.searchCatalog(catalogId, domainId, searchRequest, function(error, data, response) {
-            if (error) {
-              done(error);
-              return;
-            }
+          instance.searchCatalog(catalogId, domainId, searchRequest).then(function(data) {
             // TODO: update response assertions
             expect(data).to.be.a(UpliftSearchClientJavascript.SearchResponse);
             expect(data.numResults).to.be.a('number');
@@ -213,6 +209,26 @@
                 expect(data.searchParams.personalizationParams.enablePersonalization).to.be(false);
 
             done();
+          }, function(error) {
+            done(error);
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
+      describe('v1DomainDomainIdCatalogCatalogIdSearchOptions', function() {
+        it('should call v1DomainDomainIdCatalogCatalogIdSearchOptions successfully', function(done) {
+          // TODO: uncomment, update parameter values for v1DomainDomainIdCatalogCatalogIdSearchOptions call
+          /*
+          var catalogId = "catalogId_example";
+          var domainId = "domainId_example";
+
+          instance.v1DomainDomainIdCatalogCatalogIdSearchOptions(catalogId, domainId).then(function(data) {
+
+            done();
+          }, function(error) {
+            done(error);
           });
           */
           // TODO: uncomment and complete method invocation above, then delete this line and the next:

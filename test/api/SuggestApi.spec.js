@@ -60,11 +60,7 @@
           suggestRequest.requestParams.returnParams = false;
           suggestRequest.requestParams.returnRankingExplanation = false;
 
-          instance.suggest(catalogId, domainId, suggestRequest, function(error, data, response) {
-            if (error) {
-              done(error);
-              return;
-            }
+          instance.suggest(catalogId, domainId, suggestRequest).then(function(data) {
             // TODO: update response assertions
             expect(data).to.be.a(UpliftSearchClientJavascript.SuggestResponse);
             expect(data.numResults).to.be.a('number');
@@ -140,6 +136,26 @@
                 expect(data.suggestParams.paginationParams.page).to.be(0);
 
             done();
+          }, function(error) {
+            done(error);
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
+      describe('v1DomainDomainIdCatalogCatalogIdSuggestOptions', function() {
+        it('should call v1DomainDomainIdCatalogCatalogIdSuggestOptions successfully', function(done) {
+          // TODO: uncomment, update parameter values for v1DomainDomainIdCatalogCatalogIdSuggestOptions call
+          /*
+          var catalogId = "catalogId_example";
+          var domainId = "domainId_example";
+
+          instance.v1DomainDomainIdCatalogCatalogIdSuggestOptions(catalogId, domainId).then(function(data) {
+
+            done();
+          }, function(error) {
+            done(error);
           });
           */
           // TODO: uncomment and complete method invocation above, then delete this line and the next:

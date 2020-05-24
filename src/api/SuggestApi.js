@@ -48,22 +48,14 @@
     this.apiClient = apiClient || ApiClient.instance;
 
 
-    /**
-     * Callback function to receive the result of the suggest operation.
-     * @callback module:api/SuggestApi~suggestCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/SuggestResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * @param {String} catalogId 
      * @param {String} domainId 
      * @param {module:model/SuggestRequest} suggestRequest 
-     * @param {module:api/SuggestApi~suggestCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/SuggestResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SuggestResponse} and HTTP response
      */
-    this.suggest = function(catalogId, domainId, suggestRequest, callback) {
+    this.suggestWithHttpInfo = function(catalogId, domainId, suggestRequest) {
       var postBody = suggestRequest;
 
       // verify the required parameter 'catalogId' is set
@@ -103,8 +95,80 @@
       return this.apiClient.callApi(
         '/v1/domain/{domainId}/catalog/{catalogId}/suggest', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
+        authNames, contentTypes, accepts, returnType
       );
+    }
+
+    /**
+     * @param {String} catalogId 
+     * @param {String} domainId 
+     * @param {module:model/SuggestRequest} suggestRequest 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SuggestResponse}
+     */
+    this.suggest = function(catalogId, domainId, suggestRequest) {
+      return this.suggestWithHttpInfo(catalogId, domainId, suggestRequest)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Options Call
+     * @param {String} catalogId 
+     * @param {String} domainId 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
+     */
+    this.v1DomainDomainIdCatalogCatalogIdSuggestOptionsWithHttpInfo = function(catalogId, domainId) {
+      var postBody = null;
+
+      // verify the required parameter 'catalogId' is set
+      if (catalogId === undefined || catalogId === null) {
+        throw new Error("Missing the required parameter 'catalogId' when calling v1DomainDomainIdCatalogCatalogIdSuggestOptions");
+      }
+
+      // verify the required parameter 'domainId' is set
+      if (domainId === undefined || domainId === null) {
+        throw new Error("Missing the required parameter 'domainId' when calling v1DomainDomainIdCatalogCatalogIdSuggestOptions");
+      }
+
+
+      var pathParams = {
+        'catalogId': catalogId,
+        'domainId': domainId
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = [];
+      var accepts = [];
+      var returnType = null;
+
+      return this.apiClient.callApi(
+        '/v1/domain/{domainId}/catalog/{catalogId}/suggest', 'OPTIONS',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Options Call
+     * @param {String} catalogId 
+     * @param {String} domainId 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     */
+    this.v1DomainDomainIdCatalogCatalogIdSuggestOptions = function(catalogId, domainId) {
+      return this.v1DomainDomainIdCatalogCatalogIdSuggestOptionsWithHttpInfo(catalogId, domainId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
     }
   };
 
