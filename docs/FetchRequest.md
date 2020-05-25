@@ -1,10 +1,10 @@
-# UpliftCatalogClientJavascript.SearchRequest
+# UpliftCatalogClientJavascript.FetchRequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**searchParams** | [**SearchParams**](SearchParams.md) |  | 
+**fetchParams** | [**FetchParams**](FetchParams.md) |  | 
 **requestParams** | [**RequestParams**](RequestParams.md) |  | 
 
 

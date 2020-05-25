@@ -1,6 +1,7 @@
-# UpliftSearchClientJavascript.SearchResponse
+# UpliftCatalogClientJavascript.SearchResponse
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **numResults** | **Number** |  | 

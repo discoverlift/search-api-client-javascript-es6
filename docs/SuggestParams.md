@@ -1,6 +1,7 @@
-# UpliftSearchClientJavascript.SuggestParams
+# UpliftCatalogClientJavascript.SuggestParams
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **keyphrase** | **String** | Query keyphrase. Empty keyphrase returns no result. | 
@@ -11,7 +12,7 @@ Name | Type | Description | Notes
 **paginationParams** | [**PaginationParams**](PaginationParams.md) |  | [optional] 
 
 
-<a name="SuggestionTypeEnum"></a>
+
 ## Enum: SuggestionTypeEnum
 
 

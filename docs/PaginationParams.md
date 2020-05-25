@@ -1,6 +1,7 @@
-# UpliftSearchClientJavascript.PaginationParams
+# UpliftCatalogClientJavascript.PaginationParams
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **hitsPerPage** | **Number** |  | [optional] [default to 10]

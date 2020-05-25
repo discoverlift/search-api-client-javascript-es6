@@ -13,19 +13,19 @@
 
 
 import ApiClient from "../ApiClient";
-import SuggestRequest from '../model/SuggestRequest';
-import SuggestResponse from '../model/SuggestResponse';
+import FetchRequest from '../model/FetchRequest';
+import FetchResponse from '../model/FetchResponse';
 
 /**
-* Suggest service.
-* @module api/SuggestApi
+* Fetch service.
+* @module api/FetchApi
 * @version 1.2.2
 */
-export default class SuggestApi {
+export default class FetchApi {
 
     /**
-    * Constructs a new SuggestApi. 
-    * @alias module:api/SuggestApi
+    * Constructs a new FetchApi. 
+    * @alias module:api/FetchApi
     * @class
     * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
     * default to {@link module:ApiClient#instance} if unspecified.
@@ -39,22 +39,20 @@ export default class SuggestApi {
     /**
      * @param {String} domainId Domain Id
      * @param {String} catalogId Catalog Id
-     * @param {module:model/SuggestRequest} suggestRequest 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SuggestResponse} and HTTP response
+     * @param {Object} opts Optional parameters
+     * @param {module:model/FetchRequest} opts.fetchRequest 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/FetchResponse} and HTTP response
      */
-    suggestWithHttpInfo(domainId, catalogId, suggestRequest) {
-      let postBody = suggestRequest;
+    fetchDocumentWithHttpInfo(domainId, catalogId, opts) {
+      opts = opts || {};
+      let postBody = opts['fetchRequest'];
       // verify the required parameter 'domainId' is set
       if (domainId === undefined || domainId === null) {
-        throw new Error("Missing the required parameter 'domainId' when calling suggest");
+        throw new Error("Missing the required parameter 'domainId' when calling fetchDocument");
       }
       // verify the required parameter 'catalogId' is set
       if (catalogId === undefined || catalogId === null) {
-        throw new Error("Missing the required parameter 'catalogId' when calling suggest");
-      }
-      // verify the required parameter 'suggestRequest' is set
-      if (suggestRequest === undefined || suggestRequest === null) {
-        throw new Error("Missing the required parameter 'suggestRequest' when calling suggest");
+        throw new Error("Missing the required parameter 'catalogId' when calling fetchDocument");
       }
 
       let pathParams = {
@@ -71,9 +69,9 @@ export default class SuggestApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = SuggestResponse;
+      let returnType = FetchResponse;
       return this.apiClient.callApi(
-        '/v1/domain/{domainId}/catalog/{catalogId}/suggest', 'POST',
+        '/v1/domain/{domainId}/catalog/{catalogId}/fetch', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -82,11 +80,12 @@ export default class SuggestApi {
     /**
      * @param {String} domainId Domain Id
      * @param {String} catalogId Catalog Id
-     * @param {module:model/SuggestRequest} suggestRequest 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SuggestResponse}
+     * @param {Object} opts Optional parameters
+     * @param {module:model/FetchRequest} opts.fetchRequest 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/FetchResponse}
      */
-    suggest(domainId, catalogId, suggestRequest) {
-      return this.suggestWithHttpInfo(domainId, catalogId, suggestRequest)
+    fetchDocument(domainId, catalogId, opts) {
+      return this.fetchDocumentWithHttpInfo(domainId, catalogId, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -99,15 +98,15 @@ export default class SuggestApi {
      * @param {String} catalogId Catalog Id
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    v1DomainDomainIdCatalogCatalogIdSuggestOptionsWithHttpInfo(domainId, catalogId) {
+    v1DomainDomainIdCatalogCatalogIdFetchOptionsWithHttpInfo(domainId, catalogId) {
       let postBody = null;
       // verify the required parameter 'domainId' is set
       if (domainId === undefined || domainId === null) {
-        throw new Error("Missing the required parameter 'domainId' when calling v1DomainDomainIdCatalogCatalogIdSuggestOptions");
+        throw new Error("Missing the required parameter 'domainId' when calling v1DomainDomainIdCatalogCatalogIdFetchOptions");
       }
       // verify the required parameter 'catalogId' is set
       if (catalogId === undefined || catalogId === null) {
-        throw new Error("Missing the required parameter 'catalogId' when calling v1DomainDomainIdCatalogCatalogIdSuggestOptions");
+        throw new Error("Missing the required parameter 'catalogId' when calling v1DomainDomainIdCatalogCatalogIdFetchOptions");
       }
 
       let pathParams = {
@@ -126,7 +125,7 @@ export default class SuggestApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/v1/domain/{domainId}/catalog/{catalogId}/suggest', 'OPTIONS',
+        '/v1/domain/{domainId}/catalog/{catalogId}/fetch', 'OPTIONS',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -138,8 +137,8 @@ export default class SuggestApi {
      * @param {String} catalogId Catalog Id
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
-    v1DomainDomainIdCatalogCatalogIdSuggestOptions(domainId, catalogId) {
-      return this.v1DomainDomainIdCatalogCatalogIdSuggestOptionsWithHttpInfo(domainId, catalogId)
+    v1DomainDomainIdCatalogCatalogIdFetchOptions(domainId, catalogId) {
+      return this.v1DomainDomainIdCatalogCatalogIdFetchOptionsWithHttpInfo(domainId, catalogId)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

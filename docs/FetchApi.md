@@ -1,17 +1,17 @@
-# UpliftCatalogClientJavascript.SuggestApi
+# UpliftCatalogClientJavascript.FetchApi
 
 All URIs are relative to *https://api.prod.discoverlift.com/catalog-api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**suggest**](SuggestApi.md#suggest) | **POST** /v1/domain/{domainId}/catalog/{catalogId}/suggest | 
-[**v1DomainDomainIdCatalogCatalogIdSuggestOptions**](SuggestApi.md#v1DomainDomainIdCatalogCatalogIdSuggestOptions) | **OPTIONS** /v1/domain/{domainId}/catalog/{catalogId}/suggest | Options Call
+[**fetchDocument**](FetchApi.md#fetchDocument) | **POST** /v1/domain/{domainId}/catalog/{catalogId}/fetch | 
+[**v1DomainDomainIdCatalogCatalogIdFetchOptions**](FetchApi.md#v1DomainDomainIdCatalogCatalogIdFetchOptions) | **OPTIONS** /v1/domain/{domainId}/catalog/{catalogId}/fetch | Options Call
 
 
 
-## suggest
+## fetchDocument
 
-> SuggestResponse suggest(domainId, catalogId, suggestRequest)
+> FetchResponse fetchDocument(domainId, catalogId, opts)
 
 
 
@@ -20,11 +20,13 @@ Method | HTTP request | Description
 ```javascript
 import UpliftCatalogClientJavascript from 'uplift-catalog-client-javascript';
 
-let apiInstance = new UpliftCatalogClientJavascript.SuggestApi();
+let apiInstance = new UpliftCatalogClientJavascript.FetchApi();
 let domainId = "domainId_example"; // String | Domain Id
 let catalogId = "catalogId_example"; // String | Catalog Id
-let suggestRequest = new UpliftCatalogClientJavascript.SuggestRequest(); // SuggestRequest | 
-apiInstance.suggest(domainId, catalogId, suggestRequest).then((data) => {
+let opts = {
+  'fetchRequest': new UpliftCatalogClientJavascript.FetchRequest() // FetchRequest | 
+};
+apiInstance.fetchDocument(domainId, catalogId, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -39,11 +41,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **domainId** | **String**| Domain Id | 
  **catalogId** | **String**| Catalog Id | 
- **suggestRequest** | [**SuggestRequest**](SuggestRequest.md)|  | 
+ **fetchRequest** | [**FetchRequest**](FetchRequest.md)|  | [optional] 
 
 ### Return type
 
-[**SuggestResponse**](SuggestResponse.md)
+[**FetchResponse**](FetchResponse.md)
 
 ### Authorization
 
@@ -55,9 +57,9 @@ No authorization required
 - **Accept**: application/json
 
 
-## v1DomainDomainIdCatalogCatalogIdSuggestOptions
+## v1DomainDomainIdCatalogCatalogIdFetchOptions
 
-> v1DomainDomainIdCatalogCatalogIdSuggestOptions(domainId, catalogId)
+> v1DomainDomainIdCatalogCatalogIdFetchOptions(domainId, catalogId)
 
 Options Call
 
@@ -66,10 +68,10 @@ Options Call
 ```javascript
 import UpliftCatalogClientJavascript from 'uplift-catalog-client-javascript';
 
-let apiInstance = new UpliftCatalogClientJavascript.SuggestApi();
+let apiInstance = new UpliftCatalogClientJavascript.FetchApi();
 let domainId = "domainId_example"; // String | Domain Id
 let catalogId = "catalogId_example"; // String | Catalog Id
-apiInstance.v1DomainDomainIdCatalogCatalogIdSuggestOptions(domainId, catalogId).then(() => {
+apiInstance.v1DomainDomainIdCatalogCatalogIdFetchOptions(domainId, catalogId).then(() => {
   console.log('API called successfully.');
 }, (error) => {
   console.error(error);

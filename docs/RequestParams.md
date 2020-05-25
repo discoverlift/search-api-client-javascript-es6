@@ -1,6 +1,7 @@
-# UpliftSearchClientJavascript.RequestParams
+# UpliftCatalogClientJavascript.RequestParams
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **returnParams** | **Boolean** | Whether to return the original request in the response | [optional] [default to false]

@@ -1,14 +1,15 @@
-# UpliftSearchClientJavascript.RankingParams
+# UpliftCatalogClientJavascript.RankingParams
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**relevanceType** | **String** | Type of ranking | [optional] [default to 'relevance']
-**attributeName** | **String** | Name of attribute to use for ranking. Only used if relevanceType is 'attribute' | [optional] 
-**rankModifier** | **String** |  | [optional] [default to 'desc']
+**relevanceType** | **String** | Type of ranking | [optional] [default to &#39;relevance&#39;]
+**attributeName** | **String** | Name of attribute to use for ranking. Only used if relevanceType is &#39;attribute&#39; | [optional] 
+**rankModifier** | **String** |  | [optional] [default to &#39;desc&#39;]
 
 
-<a name="RelevanceTypeEnum"></a>
+
 ## Enum: RelevanceTypeEnum
 
 
@@ -19,7 +20,7 @@ Name | Type | Description | Notes
 
 
 
-<a name="RankModifierEnum"></a>
+
 ## Enum: RankModifierEnum
 
 

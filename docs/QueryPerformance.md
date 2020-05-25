@@ -1,6 +1,7 @@
-# UpliftSearchClientJavascript.QueryPerformance
+# UpliftCatalogClientJavascript.QueryPerformance
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **processingTime** | **Number** |  | [optional] 

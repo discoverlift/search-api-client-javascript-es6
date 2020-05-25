@@ -1,6 +1,7 @@
-# UpliftSearchClientJavascript.FacetResponseValues
+# UpliftCatalogClientJavascript.FacetResponseValues
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** | Particular value of attribute | [optional] 

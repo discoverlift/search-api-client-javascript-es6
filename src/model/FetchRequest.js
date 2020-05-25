@@ -12,25 +12,24 @@
  */
 
 import ApiClient from '../ApiClient';
+import FetchParams from './FetchParams';
 import RequestParams from './RequestParams';
-import SearchParams from './SearchParams';
 
 /**
- * The SearchRequest model module.
- * @module model/SearchRequest
+ * The FetchRequest model module.
+ * @module model/FetchRequest
  * @version 1.2.2
  */
-class SearchRequest {
+class FetchRequest {
     /**
-     * Constructs a new <code>SearchRequest</code>.
-     * Search request
-     * @alias module:model/SearchRequest
-     * @param searchParams {module:model/SearchParams} 
+     * Constructs a new <code>FetchRequest</code>.
+     * @alias module:model/FetchRequest
+     * @param fetchParams {module:model/FetchParams} 
      * @param requestParams {module:model/RequestParams} 
      */
-    constructor(searchParams, requestParams) { 
+    constructor(fetchParams, requestParams) { 
         
-        SearchRequest.initialize(this, searchParams, requestParams);
+        FetchRequest.initialize(this, fetchParams, requestParams);
     }
 
     /**
@@ -38,24 +37,24 @@ class SearchRequest {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, searchParams, requestParams) { 
-        obj['searchParams'] = searchParams;
+    static initialize(obj, fetchParams, requestParams) { 
+        obj['fetchParams'] = fetchParams;
         obj['requestParams'] = requestParams;
     }
 
     /**
-     * Constructs a <code>SearchRequest</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>FetchRequest</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/SearchRequest} obj Optional instance to populate.
-     * @return {module:model/SearchRequest} The populated <code>SearchRequest</code> instance.
+     * @param {module:model/FetchRequest} obj Optional instance to populate.
+     * @return {module:model/FetchRequest} The populated <code>FetchRequest</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new SearchRequest();
+            obj = obj || new FetchRequest();
 
-            if (data.hasOwnProperty('searchParams')) {
-                obj['searchParams'] = SearchParams.constructFromObject(data['searchParams']);
+            if (data.hasOwnProperty('fetchParams')) {
+                obj['fetchParams'] = FetchParams.constructFromObject(data['fetchParams']);
             }
             if (data.hasOwnProperty('requestParams')) {
                 obj['requestParams'] = RequestParams.constructFromObject(data['requestParams']);
@@ -68,19 +67,19 @@ class SearchRequest {
 }
 
 /**
- * @member {module:model/SearchParams} searchParams
+ * @member {module:model/FetchParams} fetchParams
  */
-SearchRequest.prototype['searchParams'] = undefined;
+FetchRequest.prototype['fetchParams'] = undefined;
 
 /**
  * @member {module:model/RequestParams} requestParams
  */
-SearchRequest.prototype['requestParams'] = undefined;
+FetchRequest.prototype['requestParams'] = undefined;
 
 
 
 
 
 
-export default SearchRequest;
+export default FetchRequest;
 
