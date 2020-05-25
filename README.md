@@ -22,12 +22,6 @@ Then install it via:
 npm install uplift-catalog-client-javascript --save
 ```
 
-Finally, you need to build the module:
-
-```shell
-npm run build
-```
-
 ##### Local development
 
 To use the library locally without publishing to a remote npm registry, first install the dependencies by changing into the directory containing `package.json` (and this README). Let's call this `JAVASCRIPT_CLIENT_DIR`. Then run:
@@ -42,21 +36,17 @@ Next, [link](https://docs.npmjs.com/cli/link) it globally in npm with the follow
 npm link
 ```
 
-To use the link you just defined in your project, switch to the directory you want to use your uplift-catalog-client-javascript from, and run:
+Finally, switch to the directory you want to use your uplift-catalog-client-javascript from, and run:
 
 ```shell
 npm link /path/to/<JAVASCRIPT_CLIENT_DIR>
 ```
 
-Finally, you need to build the module:
+You should now be able to `require('uplift-catalog-client-javascript')` in javascript files from the directory you ran the last command above from.
 
-```shell
-npm run build
-```
+### git
 
-#### git
-
-If the library is hosted at a git repository, e.g.https://github.com/GIT_USER_ID/GIT_REPO_ID
+If the library is hosted at a git repository, e.g. https://github.com/GIT_USER_ID/GIT_REPO_ID
 then install it via:
 
 ```shell
@@ -65,9 +55,7 @@ then install it via:
 
 ### For browser
 
-The library also works in the browser environment via npm and [browserify](http://browserify.org/). After following
-the above steps with Node.js and installing browserify with `npm install -g browserify`,
-perform the following (assuming *main.js* is your entry file):
+The library also works in the browser environment via npm and [browserify](http://browserify.org/). After following the above steps with Node.js and installing browserify with `npm install -g browserify`, perform the following (assuming *main.js* is your entry file, that's to say your javascript file where you actually use this library):
 
 ```shell
 browserify main.js > bundle.js

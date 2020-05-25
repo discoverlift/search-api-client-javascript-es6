@@ -18,21 +18,22 @@ Method | HTTP request | Description
 ### Example
 
 ```javascript
-import UpliftCatalogClientJavascript from 'uplift-catalog-client-javascript';
+var UpliftCatalogClientJavascript = require('uplift-catalog-client-javascript');
 
-let apiInstance = new UpliftCatalogClientJavascript.SearchApi();
-let domainId = "domainId_example"; // String | Domain Id
-let catalogId = "catalogId_example"; // String | Catalog Id
-let searchRequest = new UpliftCatalogClientJavascript.SearchRequest(); // SearchRequest | 
-apiInstance.searchCatalog(domainId, catalogId, searchRequest).then((data) => {
+var apiInstance = new UpliftCatalogClientJavascript.SearchApi();
+var domainId = "domainId_example"; // String | Domain Id
+var catalogId = "catalogId_example"; // String | Catalog Id
+var searchRequest = new UpliftCatalogClientJavascript.SearchRequest(); // SearchRequest | 
+apiInstance.searchCatalog(domainId, catalogId, searchRequest).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
+}, function(error) {
   console.error(error);
 });
 
 ```
 
 ### Parameters
+
 
 
 Name | Type | Description  | Notes
@@ -64,20 +65,21 @@ Options Call
 ### Example
 
 ```javascript
-import UpliftCatalogClientJavascript from 'uplift-catalog-client-javascript';
+var UpliftCatalogClientJavascript = require('uplift-catalog-client-javascript');
 
-let apiInstance = new UpliftCatalogClientJavascript.SearchApi();
-let domainId = "domainId_example"; // String | Domain Id
-let catalogId = "catalogId_example"; // String | Catalog Id
-apiInstance.v1DomainDomainIdCatalogCatalogIdSearchOptions(domainId, catalogId).then(() => {
+var apiInstance = new UpliftCatalogClientJavascript.SearchApi();
+var domainId = "domainId_example"; // String | Domain Id
+var catalogId = "catalogId_example"; // String | Catalog Id
+apiInstance.v1DomainDomainIdCatalogCatalogIdSearchOptions(domainId, catalogId).then(function() {
   console.log('API called successfully.');
-}, (error) => {
+}, function(error) {
   console.error(error);
 });
 
 ```
 
 ### Parameters
+
 
 
 Name | Type | Description  | Notes

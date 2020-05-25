@@ -18,21 +18,22 @@ Method | HTTP request | Description
 ### Example
 
 ```javascript
-import UpliftCatalogClientJavascript from 'uplift-catalog-client-javascript';
+var UpliftCatalogClientJavascript = require('uplift-catalog-client-javascript');
 
-let apiInstance = new UpliftCatalogClientJavascript.SuggestApi();
-let domainId = "domainId_example"; // String | Domain Id
-let catalogId = "catalogId_example"; // String | Catalog Id
-let suggestRequest = new UpliftCatalogClientJavascript.SuggestRequest(); // SuggestRequest | 
-apiInstance.suggest(domainId, catalogId, suggestRequest).then((data) => {
+var apiInstance = new UpliftCatalogClientJavascript.SuggestApi();
+var domainId = "domainId_example"; // String | Domain Id
+var catalogId = "catalogId_example"; // String | Catalog Id
+var suggestRequest = new UpliftCatalogClientJavascript.SuggestRequest(); // SuggestRequest | 
+apiInstance.suggest(domainId, catalogId, suggestRequest).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
+}, function(error) {
   console.error(error);
 });
 
 ```
 
 ### Parameters
+
 
 
 Name | Type | Description  | Notes
@@ -64,20 +65,21 @@ Options Call
 ### Example
 
 ```javascript
-import UpliftCatalogClientJavascript from 'uplift-catalog-client-javascript';
+var UpliftCatalogClientJavascript = require('uplift-catalog-client-javascript');
 
-let apiInstance = new UpliftCatalogClientJavascript.SuggestApi();
-let domainId = "domainId_example"; // String | Domain Id
-let catalogId = "catalogId_example"; // String | Catalog Id
-apiInstance.v1DomainDomainIdCatalogCatalogIdSuggestOptions(domainId, catalogId).then(() => {
+var apiInstance = new UpliftCatalogClientJavascript.SuggestApi();
+var domainId = "domainId_example"; // String | Domain Id
+var catalogId = "catalogId_example"; // String | Catalog Id
+apiInstance.v1DomainDomainIdCatalogCatalogIdSuggestOptions(domainId, catalogId).then(function() {
   console.log('API called successfully.');
-}, (error) => {
+}, function(error) {
   console.error(error);
 });
 
 ```
 
 ### Parameters
+
 
 
 Name | Type | Description  | Notes

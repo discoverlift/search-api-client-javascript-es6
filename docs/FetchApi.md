@@ -18,23 +18,24 @@ Method | HTTP request | Description
 ### Example
 
 ```javascript
-import UpliftCatalogClientJavascript from 'uplift-catalog-client-javascript';
+var UpliftCatalogClientJavascript = require('uplift-catalog-client-javascript');
 
-let apiInstance = new UpliftCatalogClientJavascript.FetchApi();
-let domainId = "domainId_example"; // String | Domain Id
-let catalogId = "catalogId_example"; // String | Catalog Id
-let opts = {
+var apiInstance = new UpliftCatalogClientJavascript.FetchApi();
+var domainId = "domainId_example"; // String | Domain Id
+var catalogId = "catalogId_example"; // String | Catalog Id
+var opts = {
   'fetchRequest': new UpliftCatalogClientJavascript.FetchRequest() // FetchRequest | 
 };
-apiInstance.fetchDocument(domainId, catalogId, opts).then((data) => {
+apiInstance.fetchDocument(domainId, catalogId, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
+}, function(error) {
   console.error(error);
 });
 
 ```
 
 ### Parameters
+
 
 
 Name | Type | Description  | Notes
@@ -66,20 +67,21 @@ Options Call
 ### Example
 
 ```javascript
-import UpliftCatalogClientJavascript from 'uplift-catalog-client-javascript';
+var UpliftCatalogClientJavascript = require('uplift-catalog-client-javascript');
 
-let apiInstance = new UpliftCatalogClientJavascript.FetchApi();
-let domainId = "domainId_example"; // String | Domain Id
-let catalogId = "catalogId_example"; // String | Catalog Id
-apiInstance.v1DomainDomainIdCatalogCatalogIdFetchOptions(domainId, catalogId).then(() => {
+var apiInstance = new UpliftCatalogClientJavascript.FetchApi();
+var domainId = "domainId_example"; // String | Domain Id
+var catalogId = "catalogId_example"; // String | Catalog Id
+apiInstance.v1DomainDomainIdCatalogCatalogIdFetchOptions(domainId, catalogId).then(function() {
   console.log('API called successfully.');
-}, (error) => {
+}, function(error) {
   console.error(error);
 });
 
 ```
 
 ### Parameters
+
 
 
 Name | Type | Description  | Notes
