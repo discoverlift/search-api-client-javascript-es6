@@ -26,7 +26,7 @@
     if (!root.UpliftCatalogClientJavascript) {
       root.UpliftCatalogClientJavascript = {};
     }
-    root.UpliftCatalogClientJavascript.FacetResponseValues = factory(root.UpliftCatalogClientJavascript.ApiClient);
+    root.UpliftCatalogClientJavascript.RecommendationContext = factory(root.UpliftCatalogClientJavascript.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,14 +34,15 @@
 
 
   /**
-   * The FacetResponseValues model module.
-   * @module model/FacetResponseValues
+   * The RecommendationContext model module.
+   * @module model/RecommendationContext
    * @version 1.3.0
    */
 
   /**
-   * Constructs a new <code>FacetResponseValues</code>.
-   * @alias module:model/FacetResponseValues
+   * Constructs a new <code>RecommendationContext</code>.
+   * A context object passed in request. Currently the following context types are supported: Product Id, An arbitrary text. Arbitrary text should be used to find recommendations for free-flowing text (e.g. blogs)
+   * @alias module:model/RecommendationContext
    * @class
    */
   var exports = function() {
@@ -50,11 +51,11 @@
   };
 
   /**
-   * Constructs a <code>FacetResponseValues</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>RecommendationContext</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/FacetResponseValues} obj Optional instance to populate.
-   * @return {module:model/FacetResponseValues} The populated <code>FacetResponseValues</code> instance.
+   * @param {module:model/RecommendationContext} obj Optional instance to populate.
+   * @return {module:model/RecommendationContext} The populated <code>RecommendationContext</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -62,24 +63,41 @@
       if (data.hasOwnProperty('name')) {
         obj['name'] = ApiClient.convertToType(data['name'], 'String');
       }
-      if (data.hasOwnProperty('numResults')) {
-        obj['numResults'] = ApiClient.convertToType(data['numResults'], 'Number');
+      if (data.hasOwnProperty('value')) {
+        obj['value'] = ApiClient.convertToType(data['value'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * Particular value of attribute
-   * @member {String} name
+   * Context property name
+   * @member {module:model/RecommendationContext.NameEnum} name
    */
   exports.prototype['name'] = undefined;
   /**
-   * Number of documents containing this value for this attribute
-   * @member {Number} numResults
+   * Context value
+   * @member {String} value
    */
-  exports.prototype['numResults'] = undefined;
+  exports.prototype['value'] = undefined;
 
+
+  /**
+   * Allowed values for the <code>name</code> property.
+   * @enum {String}
+   * @readonly
+   */
+  exports.NameEnum = {
+    /**
+     * value: "product_id"
+     * @const
+     */
+    "product_id": "product_id",
+    /**
+     * value: "text"
+     * @const
+     */
+    "text": "text"  };
 
 
   return exports;

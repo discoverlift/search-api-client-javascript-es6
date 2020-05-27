@@ -17,32 +17,32 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Document', 'model/QueryPerformance', 'model/SuggestParams'], factory);
+    define(['ApiClient', 'model/Document', 'model/QueryPerformance', 'model/RecommendationParams'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Document'), require('./QueryPerformance'), require('./SuggestParams'));
+    module.exports = factory(require('../ApiClient'), require('./Document'), require('./QueryPerformance'), require('./RecommendationParams'));
   } else {
     // Browser globals (root is window)
     if (!root.UpliftCatalogClientJavascript) {
       root.UpliftCatalogClientJavascript = {};
     }
-    root.UpliftCatalogClientJavascript.SuggestResponse = factory(root.UpliftCatalogClientJavascript.ApiClient, root.UpliftCatalogClientJavascript.Document, root.UpliftCatalogClientJavascript.QueryPerformance, root.UpliftCatalogClientJavascript.SuggestParams);
+    root.UpliftCatalogClientJavascript.RecommendationResponse = factory(root.UpliftCatalogClientJavascript.ApiClient, root.UpliftCatalogClientJavascript.Document, root.UpliftCatalogClientJavascript.QueryPerformance, root.UpliftCatalogClientJavascript.RecommendationParams);
   }
-}(this, function(ApiClient, Document, QueryPerformance, SuggestParams) {
+}(this, function(ApiClient, Document, QueryPerformance, RecommendationParams) {
   'use strict';
 
 
 
   /**
-   * The SuggestResponse model module.
-   * @module model/SuggestResponse
+   * The RecommendationResponse model module.
+   * @module model/RecommendationResponse
    * @version 1.3.0
    */
 
   /**
-   * Constructs a new <code>SuggestResponse</code>.
-   * Response from a suggest request
-   * @alias module:model/SuggestResponse
+   * Constructs a new <code>RecommendationResponse</code>.
+   * Response from a search request
+   * @alias module:model/RecommendationResponse
    * @class
    * @param numResults {Number} 
    * @param results {Array.<module:model/Document>} 
@@ -57,11 +57,11 @@
   };
 
   /**
-   * Constructs a <code>SuggestResponse</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>RecommendationResponse</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/SuggestResponse} obj Optional instance to populate.
-   * @return {module:model/SuggestResponse} The populated <code>SuggestResponse</code> instance.
+   * @param {module:model/RecommendationResponse} obj Optional instance to populate.
+   * @return {module:model/RecommendationResponse} The populated <code>RecommendationResponse</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -78,8 +78,8 @@
       if (data.hasOwnProperty('performance')) {
         obj['performance'] = QueryPerformance.constructFromObject(data['performance']);
       }
-      if (data.hasOwnProperty('suggestParams')) {
-        obj['suggestParams'] = SuggestParams.constructFromObject(data['suggestParams']);
+      if (data.hasOwnProperty('recommendationParams')) {
+        obj['recommendationParams'] = RecommendationParams.constructFromObject(data['recommendationParams']);
       }
     }
     return obj;
@@ -103,9 +103,9 @@
    */
   exports.prototype['performance'] = undefined;
   /**
-   * @member {module:model/SuggestParams} suggestParams
+   * @member {module:model/RecommendationParams} recommendationParams
    */
-  exports.prototype['suggestParams'] = undefined;
+  exports.prototype['recommendationParams'] = undefined;
 
 
 

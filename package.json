@@ -1,6 +1,6 @@
 {
   "name": "uplift-catalog-client-javascript",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "description": "Uplift Catalog API Client",
   "license": "Unlicense",
   "main": "src/index.js",

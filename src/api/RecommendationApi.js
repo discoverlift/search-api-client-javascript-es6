@@ -17,29 +17,29 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/FetchRequest', 'model/FetchResponse'], factory);
+    define(['ApiClient', 'model/RecommendationRequest', 'model/RecommendationResponse'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/FetchRequest'), require('../model/FetchResponse'));
+    module.exports = factory(require('../ApiClient'), require('../model/RecommendationRequest'), require('../model/RecommendationResponse'));
   } else {
     // Browser globals (root is window)
     if (!root.UpliftCatalogClientJavascript) {
       root.UpliftCatalogClientJavascript = {};
     }
-    root.UpliftCatalogClientJavascript.FetchApi = factory(root.UpliftCatalogClientJavascript.ApiClient, root.UpliftCatalogClientJavascript.FetchRequest, root.UpliftCatalogClientJavascript.FetchResponse);
+    root.UpliftCatalogClientJavascript.RecommendationApi = factory(root.UpliftCatalogClientJavascript.ApiClient, root.UpliftCatalogClientJavascript.RecommendationRequest, root.UpliftCatalogClientJavascript.RecommendationResponse);
   }
-}(this, function(ApiClient, FetchRequest, FetchResponse) {
+}(this, function(ApiClient, RecommendationRequest, RecommendationResponse) {
   'use strict';
 
   /**
-   * Fetch service.
-   * @module api/FetchApi
+   * Recommendation service.
+   * @module api/RecommendationApi
    * @version 1.3.0
    */
 
   /**
-   * Constructs a new FetchApi. 
-   * @alias module:api/FetchApi
+   * Constructs a new RecommendationApi. 
+   * @alias module:api/RecommendationApi
    * @class
    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
    * default to {@link module:ApiClient#instance} if unspecified.
@@ -52,20 +52,22 @@
     /**
      * @param {String} domainId Domain Id
      * @param {String} catalogId Catalog Id
-     * @param {Object} opts Optional parameters
-     * @param {module:model/FetchRequest} opts.fetchRequest 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/FetchResponse} and HTTP response
+     * @param {module:model/RecommendationRequest} recommendationRequest 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/RecommendationResponse} and HTTP response
      */
-    this.fetchDocumentWithHttpInfo = function(domainId, catalogId, opts) {
-      opts = opts || {};
-      var postBody = opts['fetchRequest'];
+    this.getRecommendationsWithHttpInfo = function(domainId, catalogId, recommendationRequest) {
+      var postBody = recommendationRequest;
       // verify the required parameter 'domainId' is set
       if (domainId === undefined || domainId === null) {
-        throw new Error("Missing the required parameter 'domainId' when calling fetchDocument");
+        throw new Error("Missing the required parameter 'domainId' when calling getRecommendations");
       }
       // verify the required parameter 'catalogId' is set
       if (catalogId === undefined || catalogId === null) {
-        throw new Error("Missing the required parameter 'catalogId' when calling fetchDocument");
+        throw new Error("Missing the required parameter 'catalogId' when calling getRecommendations");
+      }
+      // verify the required parameter 'recommendationRequest' is set
+      if (recommendationRequest === undefined || recommendationRequest === null) {
+        throw new Error("Missing the required parameter 'recommendationRequest' when calling getRecommendations");
       }
 
       var pathParams = {
@@ -84,9 +86,9 @@
       var authNames = [];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = FetchResponse;
+      var returnType = RecommendationResponse;
       return this.apiClient.callApi(
-        '/v1/domain/{domainId}/catalog/{catalogId}/fetch', 'POST',
+        '/v1/domain/{domainId}/catalog/{catalogId}/recommendation', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -95,12 +97,11 @@
     /**
      * @param {String} domainId Domain Id
      * @param {String} catalogId Catalog Id
-     * @param {Object} opts Optional parameters
-     * @param {module:model/FetchRequest} opts.fetchRequest 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/FetchResponse}
+     * @param {module:model/RecommendationRequest} recommendationRequest 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/RecommendationResponse}
      */
-    this.fetchDocument = function(domainId, catalogId, opts) {
-      return this.fetchDocumentWithHttpInfo(domainId, catalogId, opts)
+    this.getRecommendations = function(domainId, catalogId, recommendationRequest) {
+      return this.getRecommendationsWithHttpInfo(domainId, catalogId, recommendationRequest)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -113,15 +114,15 @@
      * @param {String} catalogId Catalog Id
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    this.v1DomainDomainIdCatalogCatalogIdFetchOptionsWithHttpInfo = function(domainId, catalogId) {
+    this.v1DomainDomainIdCatalogCatalogIdRecommendationOptionsWithHttpInfo = function(domainId, catalogId) {
       var postBody = null;
       // verify the required parameter 'domainId' is set
       if (domainId === undefined || domainId === null) {
-        throw new Error("Missing the required parameter 'domainId' when calling v1DomainDomainIdCatalogCatalogIdFetchOptions");
+        throw new Error("Missing the required parameter 'domainId' when calling v1DomainDomainIdCatalogCatalogIdRecommendationOptions");
       }
       // verify the required parameter 'catalogId' is set
       if (catalogId === undefined || catalogId === null) {
-        throw new Error("Missing the required parameter 'catalogId' when calling v1DomainDomainIdCatalogCatalogIdFetchOptions");
+        throw new Error("Missing the required parameter 'catalogId' when calling v1DomainDomainIdCatalogCatalogIdRecommendationOptions");
       }
 
       var pathParams = {
@@ -142,7 +143,7 @@
       var accepts = [];
       var returnType = null;
       return this.apiClient.callApi(
-        '/v1/domain/{domainId}/catalog/{catalogId}/fetch', 'OPTIONS',
+        '/v1/domain/{domainId}/catalog/{catalogId}/recommendation', 'OPTIONS',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -154,8 +155,8 @@
      * @param {String} catalogId Catalog Id
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
-    this.v1DomainDomainIdCatalogCatalogIdFetchOptions = function(domainId, catalogId) {
-      return this.v1DomainDomainIdCatalogCatalogIdFetchOptionsWithHttpInfo(domainId, catalogId)
+    this.v1DomainDomainIdCatalogCatalogIdRecommendationOptions = function(domainId, catalogId) {
+      return this.v1DomainDomainIdCatalogCatalogIdRecommendationOptionsWithHttpInfo(domainId, catalogId)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
